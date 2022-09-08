@@ -1,0 +1,22 @@
+{
+  "name": "full-state",
+  "version": "1.0.2",
+  "description": "state management in pure javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "state",
+    "useState",
+    "react",
+    "state",
+    "redux",
+    "javascipt",
+    "state",
+    "state",
+    "management"
+  ],
+  "author": "rami sweyri",
+  "license": "MIT"
+}

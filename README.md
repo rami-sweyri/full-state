@@ -93,11 +93,13 @@ console.log(formData.get());
 ```
 
 setState will not replace the old state, just update email & add password.
+
 replaceState do that, similar to react.
+
 state.replaceState({
-...state.get(),
-email: "rami.alsviri@gmail.com",
-password: "123456",
+  ...state.get(),
+  email: "rami.alsviri@gmail.com",
+  password: "123456",
 });
 
 Example 2:

@@ -1,6 +1,6 @@
 {
   "name": "full-state",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "state management in pure javascript",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,12 @@
     "state",
     "useState",
     "react",
-    "state",
     "redux",
     "javascipt",
-    "state",
-    "state",
-    "management"
+    "state management",
+    "management",
+    "full-state",
+    "full state"
   ],
   "author": "rami sweyri",
   "license": "MIT"

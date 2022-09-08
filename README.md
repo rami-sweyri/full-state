@@ -88,22 +88,23 @@ console.log(state.get());
 //   password: '123456'
 // }
 
-console.log(formData.get()); // { firstName: 'rami', lastName: 'sweyri', middleName: 'asaad' }
+console.log(formData.get());
+// { firstName: 'rami', lastName: 'sweyri', middleName: 'asaad' }
 ```
 
-```sh
 setState will not replace the old state, just update email & add password.
 replaceState do that, similar to react.
-  state.replaceState({
-    ...state.get(),
-    email: "rami.alsviri@gmail.com",
-    password: "123456",
-  });
-```
+state.replaceState({
+...state.get(),
+email: "rami.alsviri@gmail.com",
+password: "123456",
+});
 
 Example 2:
 
-### set & delete & clear & destroy
+### set & setState & replaceState & delete & clear & destroy
+
+state manipulation in Full State
 
 ```tsx
 state.set("user.name", formData.get("firstName"));
@@ -139,7 +140,8 @@ console.log(state.get());
 
 console.log(state.get("user.adress.city")); // 'Boston' -> get value of key
 
-console.log(formData.get()); // { firstName: 'adam', lastName: 'sweyri', middleName: 'asaad' }
+console.log(formData.get());
+// { firstName: 'adam', lastName: 'sweyri', middleName: 'asaad' }
 
 formData.clear(); // clear formData
 console.log(formData.get()); // {}

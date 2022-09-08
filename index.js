@@ -77,6 +77,14 @@ function State(state = {}) {
     );
   };
 
+  this.stringify = function () {
+    return JSON.stringify(this.state);
+  };
+
+  this.parse = function () {
+    return JSON.parse(this.state);
+  };
+
   this.resolvePath = (path, key = false) => {
     if (path !== null) {
       return (

@@ -1,6 +1,6 @@
 {
   "name": "full-state",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "state management in pure javascript",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,9 @@
     "full-state",
     "full state"
   ],
+  "publishConfig": {
+    "registry": "https://github.com/rami-sweyri/full-state"
+  },
   "author": "rami sweyri",
   "license": "MIT"
 }

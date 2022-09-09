@@ -2,7 +2,7 @@
 
 # Full State
 
-the easiest way to manage you'r state ever.
+> the easiest way ever! to manage your state.
 
 ## Installation
 
@@ -89,6 +89,21 @@ console.log(state.get()); // null
 
 If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 
+## Methods
+
+| Name              | Desciption                                                                                                                          |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| setState(data)    | similar to react useState.                                                                                                          |
+| set('key', value) | set key value pair state.set("devices.0.type", "PC") or state.set("devices.0", {type: "PC"}) return { devices: [ { type: "PC" } ] } |
+| get('key')        | get full state -> state.get(). or part of the state -> state.get('user.address.city')                                               |
+| data              | get full state -> state.data or state.get()                                                                                         |
+| delete()          | delete full state -> state.delete(). or part of the state -> state.delete('user.address)                                            |
+| clear()           | clear full state -> state.clear() return {}                                                                                         |
+| destroy()         | destroy full state -> null state.destroy()return null                                                                               |
+| parse()           | state.parse() return JSON.parse(state)                                                                                              |
+| stringify()       | state.stringify() return JSON.stringify(state)                                                                                      |
+| put()             | put new value to the root of the state without key, similar to set -> state.put({ name:"jhon" })                                    |
+
 ## Documentation
 
 [Documentation](https://github.com/rami-sweyri/full-state)
@@ -100,21 +115,3 @@ If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 ## Support
 
 For support, email rami.sweyri@gmail.com
-
-## Color Reference
-
-| Name           | Desciption                                         |
-| -------------- | -------------------------------------------------- |
-| setState()     | similar to react useState                          |
-| set()          | set key value pair set("devices.0.type", "PC")     |
-| get()          | get full or part of the state                      |
-| data           | get full state                                     |
-| delete()       | delete full or part of the state                   |
-| clear()        | delete full state -> {}                            |
-| destroy()      | delete full state -> null                          |
-| parse()        | return JSON.parse(state)                           |
-| stringify()    | return JSON.stringify(state)                       |
-| put()          | put new value to the root of the state without key |
-| replaceState() | soon                                               |
-| have()         | soon                                               |
-| empty()        | soon                                               |

@@ -26,6 +26,7 @@ const State = require("full-state");
 const state = new State({});
 const formData = new State({ firstName: "rami", lastName: "sweyri" });
 
+formData.set("middleName", "asgm");
 state.setState({
   email: "rami.sweyri@gmail.com",
   devices: [
@@ -64,7 +65,8 @@ console.log(state.get()); // or console.log(state.data);
 //   devices: [ { id: 1, type: 'PC' }, { id: 2, type: 'phone' } ],
 //   user: {
 //     firstName: 'rami',
-//     lastName: '',
+//     lastName: 'sweyri',
+//     middleName, 'asgm'
 //     age: 27,
 //     address: { street: 'Area 51' }
 //   }

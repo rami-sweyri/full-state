@@ -2,7 +2,7 @@
 
 # Full State
 
-> the easiest way ever! to manage your state in JavaScript or any other library like react, Vue & angular
+> the easiest way ever! to manage your state in JavaScript or any other library like react, Vue & angular.
 
 ## Installation
 
@@ -91,18 +91,18 @@ If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 
 ## Methods
 
-| Name              | Desciption                                                                               |
-| ----------------- | ---------------------------------------------------------------------------------------- |
-| setState(data)    | similar to react useState.                                                               |
-| set('key', value) | set key value pair -> state.set("devices.0", {type: "PC"})                               |
-| get('key')        | get full state -> state.get(). or part of the state -> state.get('user.address.city')    |
-| data              | get full state -> state.data or state.get()                                              |
-| delete()          | delete full state -> state.delete(). or part of the state -> state.delete('user.address) |
-| clear()           | clear full state -> state.clear() return {}                                              |
-| destroy()         | destroy full state -> null state.destroy()return null                                    |
-| parse()           | state.parse() return JSON.parse(state)                                                   |
-| stringify()       | state.stringify() return JSON.stringify(state)                                           |
-| put()             | put new value to the root of the state without key, state.put({ name:"jhon" })           |
+| Name              | Desciption                                                                                                                          |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| setState(data)    | similar to react useState.                                                                                                          |
+| set('key', value) | set key value pair state.set("devices.0.type", "PC") or state.set("devices.0", {type: "PC"}) return { devices: [ { type: "PC" } ] } |
+| get('key')        | get full state -> state.get(). or part of the state -> state.get('user.address.city')                                               |
+| data              | get full state -> state.data or state.get()                                                                                         |
+| delete()          | delete full state -> state.delete(). or part of the state -> state.delete('user.address)                                            |
+| clear()           | clear full state -> state.clear() return {}                                                                                         |
+| destroy()         | destroy full state -> null state.destroy()return null                                                                               |
+| parse()           | state.parse() return JSON.parse(state)                                                                                              |
+| stringify()       | state.stringify() return JSON.stringify(state)                                                                                      |
+| put()             | put new value to the root of the state without key, similar to set -> state.put({ name:"jhon" })                                    |
 
 ## Documentation
 

@@ -2,7 +2,7 @@
 
 # Full State
 
-> the easiest way ever! to manage your state.
+> the easiest way ever! to manage your state in JavaScript or any other library like react, Vue & angular
 
 ## Installation
 

@@ -4,7 +4,7 @@ function State(state = {}) {
   this.state = state;
 
   this.setState = function (data) {
-    this.state = { ...this.state, ...data };
+    this.state = data;
   };
 
   this.replaceState = function (data) {
@@ -29,8 +29,8 @@ function State(state = {}) {
   this.set = function (key, vlaue) {
     this.setPath(key, vlaue, false);
   };
-  this.put = function (key, vlaue) {
-    this.setPath(key, vlaue, true);
+  this.put = function (vlaue) {
+    this.setPath(null, vlaue, true);
   };
 
   this.deletePropertyPath = function (obj, path) {
@@ -104,6 +104,12 @@ function State(state = {}) {
   this.get = function (key) {
     return this.resolvePath(key);
   };
+
+  Object.defineProperty(this, "data", {
+    get() {
+      return this.state;
+    },
+  });
 
   this.clear = function () {
     this.state = {};

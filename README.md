@@ -1,156 +1,118 @@
 <!-- @format -->
 
-[![npm version](https://badge.fury.io/js/angular2-expandable-list.svg)](https://badge.fury.io/js/angular2-expandable-list)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
 # Full State
 
-> Full State is a JavaScript library for state management in the simplest way possible.
-
-## Prerequisites
-
-This project requires NodeJS (version 8 or later) and NPM.
-[Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
-To make sure you have them available on your machine,
-try running the following command.
-
-```sh
-$ npm -v && node -v
-6.4.1
-v8.16.0
-```
+the easiest way to manage you'r state ever.
 
 ## Installation
 
-To install and set up the library, run:
+Install full-state
 
-```sh
-$ npm install full-state
+```bash
+npm install full-state
 ```
 
-Or if you prefer using Yarn:
+or
 
-```sh
-$ yarn add full-state
+```bash
+yarn add full-state
 ```
 
-## Import
+## Usage/Examples
 
-```sh
+```javascript
 const State = require("full-state");
-```
 
-### Init New State
-
-```sh
 const state = new State({});
-const formData = new State({ firstName:"rami", lastName:"sweyri" });
-```
+const formData = new State({ firstName: "rami", lastName: "sweyri" });
 
-Example 1:
-
-### set & setState
-
-More ways to set new values for your states
-
-```tsx
 state.setState({
   email: "rami.sweyri@gmail.com",
-  user: {
-    name: "Rami",
-    age: 30,
-    address: {
-      street: "50 Main st",
-      city: "Boston",
+  devices: [
+    {
+      id: 1,
+      type: "laptop",
     },
-  },
+  ],
 });
 
-formData.set("firstName", "adam");
-formData.set("middleName", "asaad");
+state.set("devices.0.type", "PC");
+state.set("user", {
+  ...formData.get(), // or formData.data
+  age: 27,
+  address: { street: "51 Arena st", city: "Boston" },
+});
 
-state.set("user.name", "Adam");
-state.set("user.address.street", "51 Arena st");
-state.set(
-  null, // null mean new vlaue will be in the root of the state
-  formData.get() // get() -> get state
-);
-
-state.setState({ email: "rami.alsviri@gmail.com", password: "123456" });
-
-console.log(state.get());
-// {
-//   email: 'rami.alsviri@gmail.com',
-//   user: { name: 'Adam', address: { street: '51 Arena st', city: 'Boston' } },
-//   firstName: 'adam',
-//   lastName: 'sweyri',
-//   middleName: 'asaad',
-//   password: '123456'
-// }
-
-console.log(formData.get());
-// { firstName: 'rami', lastName: 'sweyri', middleName: 'asaad' }
-```
-
-setState will not replace the old state, just update email & add password.
-
-replaceState do that, similar to react.
-
-state.replaceState({
-  ...state.get(),
+state.setState({
+  ...state.data, // or state.get()
   email: "rami.alsviri@gmail.com",
   password: "123456",
-});
+}); // update state
 
-Example 2:
+state.delete("password"); // delete password
+state.delete("user.address.city");
 
-### set & setState & replaceState & delete & clear & destroy
+state.set("user.address.street", "Area 51"); // update value
+state.set("devices.1", {
+  id: 2,
+  type: "phone",
+}); // add new device
 
-state manipulation in Full State
-
-```tsx
-state.set("user.name", formData.get("firstName"));
-state.set("devices", [
-  {
-    id: 1,
-    type: "laptop",
-  },
-  {
-    id: 2,
-    type: "phone",
-  },
-]);
-state.set("devices.0.type", "PC");
-
-state.replaceState({ ...state.get(), isUserActive: true });
-// or state.setState({ isUserActive: true });
-state.set("isUserActive", false);
-state.delete("user.age");
-
-console.log(state.get());
+console.log(state.get()); // or console.log(state.data);
 // {
 //   email: 'rami.alsviri@gmail.com',
-//   user: { name: 'Adam', address: { street: '51 Arena st', city: 'Boston' } },
-//   isUserActive: false,
-//   firstName: 'adam',
-//   lastName: 'sweyri',
-//   middleName: 'asaad',
-//   password: '123456',
-//   name: 'adam',
-//   devices: [ { id: 1, type: 'PC' }, { id: 2, type: 'phone' } ]
+//   devices: [ { id: 1, type: 'PC' }, { id: 2, type: 'phone' } ],
+//   user: {
+//     firstName: 'rami',
+//     lastName: '',
+//     age: 27,
+//     address: { street: 'Area 51' }
+//   }
 // }
 
-console.log(state.get("user.adress.city")); // 'Boston' -> get value of key
+console.log(state.get("user.adress")); // {street: "Area 51"}
 
-console.log(formData.get());
-// { firstName: 'adam', lastName: 'sweyri', middleName: 'asaad' }
-
-formData.clear(); // clear formData
-console.log(formData.get()); // {}
-
-formData.destroy(); // destroy formData
-console.log(formData.get()); // null
+state.clear(); // clear state
+console.log(state.get()); // {}
 
 state.destroy(); // destroy state
 console.log(state.get()); // null
 ```
+
+## License
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## Feedback
+
+If you have any feedback, please reach out to us at rami.sweyri@gmail.com
+
+## Documentation
+
+[Documentation](https://github.com/rami-sweyri/full-state)
+
+## 🔗 Links
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rami-sweyri/)
+
+## Support
+
+For support, email rami.sweyri@gmail.com
+
+## Color Reference
+
+| Name           | Desciption                                         |
+| -------------- | -------------------------------------------------- |
+| setState()     | similar to react useState                          |
+| set()          | set key value pair set("devices.0.type", "PC")     |
+| get()          | get full or part of the state                      |
+| data           | get full state                                     |
+| delete()       | delete full or part of the state                   |
+| clear()        | delete full state -> {}                            |
+| destroy()      | delete full state -> null                          |
+| parse()        | return JSON.parse(state)                           |
+| stringify()    | return JSON.stringify(state)                       |
+| put()          | put new value to the root of the state without key |
+| replaceState() | soon                                               |
+| have()         | soon                                               |
+| empty()        | soon                                               |

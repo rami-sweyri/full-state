@@ -17,9 +17,6 @@
     "full-state",
     "full state"
   ],
-  "publishConfig": {
-    "registry": "https://github.com/rami-sweyri/full-state"
-  },
   "author": "rami sweyri",
   "license": "MIT"
 }

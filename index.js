@@ -11,6 +11,25 @@ function State(state = {}) {
     this.state = data;
   };
 
+  // this.setPath = (path, value, replace) => {
+  //   if (path !== null) {
+  //     return path
+  //       .replace("[", ".")
+  //       .replace("]", "")
+  //       .split(".")
+  //       .reduce((o, p, i) => {
+  //         console.log({ o, p, isNaN: isNaN(Number(p)), i, "o[p]": o[p] });
+  //         return (o[p] =
+  //           path.replace("[", ".").replace("]", "").split(".").length === ++i
+  //             ? value
+  //             : isNaN(Number(p))
+  //             ? {}
+  //             : []);
+  //       }, this.state);
+  //   } else {
+  //     this.state = { ...this.state, ...value };
+  //   }
+  // };
   this.setPath = (path, value, replace) => {
     if (path !== null) {
       return path.split(".").reduce((o, p, i) => {
@@ -18,7 +37,9 @@ function State(state = {}) {
           path.split(".").length === ++i
             ? replace
               ? value
-              : value
+              : typeof value === "string" || !isNaN(Number(p))
+              ? value
+              : { ...this.resolvePath(path), ...value }
             : o[p] || {});
       }, this.state);
     } else {

@@ -66,7 +66,7 @@ console.log(state.get()); // or console.log(state.data);
 //   user: {
 //     firstName: 'rami',
 //     lastName: 'sweyri',
-//     middleName, 'asgm'
+//     middleName: 'asgm',
 //     age: 27,
 //     address: { street: 'Area 51' }
 //   }
@@ -80,14 +80,6 @@ console.log(state.get()); // {}
 state.destroy(); // destroy state
 console.log(state.get()); // null
 ```
-
-## License
-
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
-## Feedback
-
-If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 
 ## Methods
 
@@ -107,6 +99,14 @@ If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 ## Documentation
 
 [Documentation](https://github.com/rami-sweyri/full-state)
+
+## License
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## Feedback
+
+If you have any feedback, please reach out to us at rami.sweyri@gmail.com
 
 ## 🔗 Links
 

@@ -137,31 +137,31 @@ function State(state = {}) {
     },
   });
 
-  object.defineProperty(this, "length", {
+  Object.defineProperty(this, "length", {
     get() {
       return Object.keys(this.state).length;
     },
   });
 
-  object.defineProperty(this, "keys", {
+  Object.defineProperty(this, "keys", {
     get() {
       return Object.keys(this.state);
     },
   });
 
-  object.defineProperty(this, "values", {
+  Object.defineProperty(this, "values", {
     get() {
       return Object.values(this.state);
     },
   });
 
-  object.defineProperty(this, "entries", {
+  Object.defineProperty(this, "entries", {
     get() {
       return Object.entries(this.state);
     },
   });
 
-  object.defineProperty(this, "isEmpty", {
+  Object.defineProperty(this, "isEmpty", {
     get() {
       return this.empty();
     },

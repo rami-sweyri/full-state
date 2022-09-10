@@ -23,10 +23,7 @@ yarn add full-state
 ```javascript
 const State = require("full-state");
 
-const state = new State({});
-const formData = new State({ firstName: "rami", lastName: "sweyri" });
-
-formData.set("middleName", "asgm");
+const state = new State({}); // examples 2
 state.setState({
   email: "rami.sweyri@gmail.com",
   devices: [
@@ -35,21 +32,32 @@ state.setState({
       type: "laptop",
     },
   ],
-});
+}); // setState(value)
 
-state.set("devices.0.type", "PC");
+const formData = new State({ firstName: "rami", lastName: "sweyri" }); // example 2
+formData.set("middleName", "assad"); // set(key, value)
+```
+
+use `set` and `setState` and `get`
+
+```jsx
+state.set("devices.0.type", "PC"); // update
 state.set("user", {
   ...formData.get(), // or formData.data
   age: 27,
   address: { street: "51 Arena st", city: "Boston" },
-});
+}); // set value
 
 state.setState({
   ...state.data, // or state.get()
   email: "rami.alsviri@gmail.com",
   password: "123456",
 }); // update state
+```
 
+use `delete` and `clear` and `destroy`
+
+```jsx
 state.delete("password"); // delete password
 state.delete("user.address.city");
 
@@ -57,7 +65,7 @@ state.set("user.address.street", "Area 51"); // update value
 state.set("devices.1", {
   id: 2,
   type: "phone",
-}); // add new device
+}); // add new device to devices array
 
 console.log(state.get()); // or console.log(state.data);
 // {
@@ -72,7 +80,7 @@ console.log(state.get()); // or console.log(state.data);
 //   }
 // }
 
-console.log(state.get("user.adress")); // {street: "Area 51"}
+console.log(state.get("user.address")); // {street: "Area 51"}
 
 state.clear(); // clear state
 console.log(state.get()); // {}

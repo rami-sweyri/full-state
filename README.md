@@ -23,7 +23,8 @@ yarn add full-state
 ```javascript
 const State = require("full-state");
 
-const state = new State({}); // examples 2
+// example 1
+const state = new State({});
 state.setState({
   email: "rami.sweyri@gmail.com",
   devices: [
@@ -34,7 +35,8 @@ state.setState({
   ],
 }); // setState(value)
 
-const formData = new State({ firstName: "rami", lastName: "sweyri" }); // example 2
+// example 2
+const formData = new State({ firstName: "rami", lastName: "sweyri" });
 formData.set("middleName", "assad"); // set(key, value)
 ```
 

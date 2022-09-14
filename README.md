@@ -21,6 +21,7 @@ yarn add full-state
 ## Usage/Examples
 
 ```javascript
+// note: in react, use defaultValue instead of value in input for now
 const State = require("full-state");
 
 // example 1

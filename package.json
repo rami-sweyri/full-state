@@ -1,6 +1,6 @@
 {
   "name": "full-state",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "state management in pure javascript",
   "main": "index.js",
   "scripts": {

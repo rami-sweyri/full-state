@@ -24,7 +24,15 @@ function State(state = {}) {
                 !isNaN(Number(p))
               ? value
               : typeof this.getPropertyPath(this.state, path) !== "undefined"
-              ? { ...this.resolvePath(path), ...value }
+              ? Array.isArray(value)
+                ? replace
+                  ? value
+                  : [...this.resolvePath(path), ...value]
+                : replace
+                ? value
+                : { ...this.resolvePath(path), ...value }
+              : Array.isArray(value)
+              ? [...value]
               : { ...value }
             : o[p] || {});
       }, this.state);
@@ -36,8 +44,8 @@ function State(state = {}) {
   this.set = function (key, vlaue) {
     this.setPath(key, vlaue, false);
   };
-  this.put = function (vlaue) {
-    this.setPath(null, vlaue, true);
+  this.put = function (key, vlaue) {
+    this.setPath(key, vlaue, true);
   };
   this.getPropertyPath = function (obj, path) {
     if (!obj || !path) {
@@ -174,5 +182,27 @@ function State(state = {}) {
     this.state = null;
   };
 }
+const state = new State({});
+
+state.setState({
+  email: "rami.sweyri@gmail.com",
+  devices: [{ id: 0, type: "Lav" }],
+});
+
+state.set("devices", [
+  { id: 1, type: "PC" },
+  { id: 2, type: "phone" },
+]);
+
+state.set("user", {
+  age: 27,
+  address: { street: "51 Arena st", city: "Boston" },
+});
+
+state.set("user.address.street", "Area 51"); // update value
+console.log(state.get()); // or console.log(state.data);
+
+state.put("user.address.street", "Area 52"); // update value
+console.log(state.get()); // or console.log(state.data);
 
 module.exports = State;

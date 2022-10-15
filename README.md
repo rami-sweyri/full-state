@@ -94,18 +94,18 @@ state.destroy(); // destroy state return null
 
 Below is the complete list of possible props and their options:
 
-**setState**: _(data:any)_ ▶︎ similar to useState in react.
+> **setState**: _(data:any)_ ▶︎ similar to useState in react.
 
 `setState({name:"Rami",lastName:"Sweyri"})`
 
-**set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
+> **set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
 
 ︎`set("email","rami.sweyri@gmail.com")`
 `set("address.city", "Aleppo")`
-`set("interests", ["Sports", "artificial" "intelligence", "games"])`
+`set("interests", ["Sports", "artificial", "intelligence", "games"])`
 `set("interests.4", "coffee")`
 
-**get**: _(any)_ ▶︎ get full state.
+> **get**: _(any)_ ▶︎ get full state.
 
 `get()` or` get` or `data` or `state`
 
@@ -118,7 +118,7 @@ Below is the complete list of possible props and their options:
 }
 ```
 
-**get**: _(string)_ ▶︎ get certain value. Supports nested levels.
+> **get**: _(string)_ ▶︎ get certain value. Supports nested levels.
 
 `get("address")`
 
@@ -133,6 +133,32 @@ Below is the complete list of possible props and their options:
 ```jsx
 "coffee";
 ```
+
+> **delete**: _(string)_ ▶︎ delete certain value. Supports nested levels.
+
+`delete("interests.1")` 
+`get("interests")`
+
+```jsx
+["Sports", "intelligence", "games", "coffee"];
+```
+
+> **clear**: _()_ ▶︎ clear the full state return embty object.
+
+> **destroy**: _()_ ▶︎ clear the full state return null.
+
+> **isEmpty** ▶︎ check if full state equal [], {}, false, null, "", undefined.
+
+> **length** ▶︎ check length of full state, It doesn't matter if it object, array, string.
+
+> **keys** ▶︎ check keys of full state, It doesn't matter if it object, array, string.
+
+> **values** ▶︎ clear values of full state, It doesn't matter if it object, array, string.
+
+> **entries** ▶︎ clear entries of full state, It doesn't matter if it object, array, string.
+
+
+
 
 ## License
 

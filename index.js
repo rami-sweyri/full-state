@@ -106,6 +106,15 @@ function State(state = {}) {
     return (
       this.state == null ||
       this.state === "" ||
+      this.state === undefined ||
+      typeof this.state === "undefined" ||
+      this.state === "null" ||
+      this.state === "[]" ||
+      this.state === [] ||
+      this.state === "false" ||
+      this.state === false ||
+      this.state.length === 0 ||
+      !this.state ||
       (Object.keys(this.state).length === 0 &&
         this.state.constructor === Object)
     );

@@ -94,8 +94,6 @@ state.destroy(); // destroy state return null
 
 Below is the complete list of possible props and their options:
 
-> ▶︎ indicates the default value if there's one
-
 **setState**: _(data:any)_ ▶︎ similar to useState in react.
 `setState({name:"Rami",lastName:"Sweyri"})`
 

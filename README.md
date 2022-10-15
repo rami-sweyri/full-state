@@ -1,63 +1,61 @@
-<!-- @format -->
-
 # Full State
 
-> the easiest way ever! to manage your state in JavaScript or any other library like react, Vue & angular.
+> the easiest way ever! to manage your state in JavaScript or any other library like React, Vue & Angular.
+
+The closest thing is useState() in react, but with more advanced features like set, get, put and many useful methods.
 
 ## Installation
 
-Install full-state
-
-```bash
-npm install full-state
+```sh
+npm install full-state --save
 ```
 
 or
 
-```bash
+```sh
 yarn add full-state
 ```
 
-## Usage/Examples
+## Usage example
+
+ini new `state` and use `set`, `setState`, `get`
 
 ```jsx
-// note: in react, use defaultValue instead of value in input for now
 const State = require("full-state");
 //or
 // import State from "full-state";
 
 const state = new State({});
+const formData = new State({ firstName: "Rami", lastName: "Sweyri" });
+
+formData.set("middleName", "Adam"); // set(key, value)
+
 state.setState({
   email: "rami.sweyri@gmail.com",
+  fullName: formData.get("firstName") + " " + formData.get("lastName"),
   devices: [
     {
       id: 1,
       type: "laptop",
     },
   ],
-}); // setState(value)
+}); // setState(newValue)
 
-const formData = new State({ firstName: "rami", lastName: "sweyri" });
-formData.set("middleName", "assad"); // set(key, value)
-```
-
-use `set` and `setState` and `get`
-
-```jsx
 state.set("devices.0.type", "PC"); // update
 state.set("user", {
+  ...formData.data, // or ...formData.state or ...formData.get or ...formData.get()
   age: 27,
   address: { street: "51 Arena st", city: "Boston" },
 }); // set value
 
 state.setState({
-  ...state.data, // or state.get()
+  ...state.get(), // or ,,,formData.data or ...formData.state or ...formData.get or ...formData.get()
   email: "rami.alsviri@gmail.com",
   password: "123456",
 }); // update state
 ```
 
-use `delete` and `clear` and `destroy`
+use `delete`, `clear` , `destroy`
 
 ```jsx
 state.delete("password"); // delete password
@@ -69,43 +67,70 @@ state.set("devices.1", {
   type: "phone",
 }); // add new device to devices array
 
-console.log(state.get()); // or console.log(state.data);
+console.log(state.get());
 // {
-//   email: 'rami.alsviri@gmail.com',
-//   devices: [ { id: 1, type: 'PC' }, { id: 2, type: 'phone' } ],
+//   email: "rami.alsviri@gmail.com",
+//   fullName: "Rami Sweyri',
+//   devices: [ { id: 1, type: "PC" }, { id: 2, type: "phone" } ],
 //   user: {
-//     firstName: 'rami',
-//     lastName: 'sweyri',
-//     middleName: 'asgm',
+//     firstName: "Rami",
+//     lastName: "Sweyri",
+//     middleName: "Adam",
 //     age: 27,
-//     address: { street: 'Area 51' }
+//     address: { street: "Area 51" }
 //   }
 // }
 
-console.log(state.get("user.address")); // {street: "Area 51"}
-
-state.clear(); // clear state
-console.log(state.get()); // {}
-
-state.destroy(); // destroy state
-console.log(state.get()); // null
+state.get("user.address"); // get return {street: "Area 51"}
+state.clear(); // clear state return {}
+state.destroy(); // destroy state return null
 ```
 
 ## Documentation
 
 [https://github.com/rami-sweyri/full-state](https://github.com/rami-sweyri/full-state)
 
-## Methods
+## Props
 
-| Name              | Desciption                                                                                                                             |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| setState(data)    | similar to react useState.                                                                                                             |
-| set('key', value) | set key value pair -> state.set("devices.0.type", "PC") or state.set("devices.0", {type: "PC"}) return { devices: [ { type: "PC" } ] } |
-| get('key')        | get full state -> state.get(). or part of the state -> state.get('user.address.city')                                                  |
-| data              | get full state -> state.data or state.get()                                                                                            |
-| delete()          | delete full state -> state.delete(). or part of the state -> state.delete('user.address)                                               |
-| clear()           | clear full state -> state.clear() return {}                                                                                            |
-| destroy()         | destroy full state -> null state.destroy()return null                                                                                  |
+Below is the complete list of possible props and their options:
+
+> ▶︎ indicates the default value if there's one
+
+**setState**: _(data:any)_ ▶︎ similar to useState in react.
+`setState({name:"Rami",lastName:"Sweyri"})`
+
+**set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
+︎ `set("email","rami.sweyri@gmail.com")`  
+`set("address.city", "Aleppo")`
+`set("interests", ["Sports", "artificial" "intelligence", "games"])`
+`set("interests.4", "coffee")`
+
+**get**: _(any)_ ▶︎ get full state.
+`get()` or` get` or `data` or `state`
+
+```jsx
+{
+    name:"Rami",
+    lastName:"Sweyri",
+    address: {city:"Aleepo"},
+    interests, ["Sports", "artificial" "intelligence", "games", "coffee"]
+}
+```
+
+**get**: _(string)_ ▶︎ get certain value. Supports nested levels.
+`get("address")`
+
+```jsx
+{
+  city: "Aleepo";
+}
+```
+
+`get("interests.4")`
+
+```jsx
+"coffee";
+```
 
 ## License
 
@@ -114,3 +139,19 @@ console.log(state.get()); // null
 ## 🔗 Links
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rami-sweyri/)
+
+## Release History
+
+- 1.2.0
+  - CHANGE: set and put method
+  - FIX: set array type
+- 1.1.1
+  - FIX: set number issue
+  - ADD: Add `init()`
+- 1.0.8
+  - IMPROVE: improve set method
+- 1.0.72
+  - IMPROVE: setState
+  - CHANGE: Rename `replaceState()` to `setState()`
+- 1.0.6
+  - ADD: stringify & parse method

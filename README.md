@@ -98,7 +98,7 @@ Below is the complete list of possible props and their options:
 `setState({name:"Rami",lastName:"Sweyri"})`
 
 **set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
-︎ `set("email","rami.sweyri@gmail.com")`  
+︎`set("email","rami.sweyri@gmail.com")`  
 `set("address.city", "Aleppo")`
 `set("interests", ["Sports", "artificial" "intelligence", "games"])`
 `set("interests.4", "coffee")`
@@ -108,10 +108,10 @@ Below is the complete list of possible props and their options:
 
 ```jsx
 {
-    name:"Rami",
-    lastName:"Sweyri",
-    address: {city:"Aleepo"},
-    interests, ["Sports", "artificial" "intelligence", "games", "coffee"]
+  name: "Rami",
+  lastName: "Sweyri",
+  address: { city: "Aleepo" },
+  interests: ["Sports", "artificial", "intelligence", "games", "coffee"],
 }
 ```
 

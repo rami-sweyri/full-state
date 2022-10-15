@@ -49,7 +49,7 @@ state.set("user", {
 }); // set value
 
 state.setState({
-  ...state.get(), // or ,,,formData.data or ...formData.state or ...formData.get or ...formData.get()
+  ...state.get(), // or ,,,formData.data or ...formData.state or ...formData.get
   email: "rami.alsviri@gmail.com",
   password: "123456",
 }); // update state
@@ -95,15 +95,18 @@ state.destroy(); // destroy state return null
 Below is the complete list of possible props and their options:
 
 **setState**: _(data:any)_ ▶︎ similar to useState in react.
+
 `setState({name:"Rami",lastName:"Sweyri"})`
 
 **set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
+
 ︎`set("email","rami.sweyri@gmail.com")`
 `set("address.city", "Aleppo")`
 `set("interests", ["Sports", "artificial" "intelligence", "games"])`
 `set("interests.4", "coffee")`
 
 **get**: _(any)_ ▶︎ get full state.
+
 `get()` or` get` or `data` or `state`
 
 ```jsx
@@ -116,6 +119,7 @@ Below is the complete list of possible props and their options:
 ```
 
 **get**: _(string)_ ▶︎ get certain value. Supports nested levels.
+
 `get("address")`
 
 ```jsx

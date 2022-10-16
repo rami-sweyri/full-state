@@ -43,13 +43,13 @@ state.setState({
 
 state.set("devices.0.type", "PC"); // update
 state.set("user", {
-  ...formData.data, // or ...formData.state or ...formData.get or ...formData.get()
+  ...formData.data, // or ...formData.state or ...formData.get()
   age: 27,
   address: { street: "51 Arena st", city: "Boston" },
 }); // set value
 
 state.setState({
-  ...state.get(), // or ,,,formData.data or ...formData.state or ...formData.get
+  ...state.get(), // or ,,,formData.data or ...formData.state
   email: "rami.alsviri@gmail.com",
   password: "123456",
 }); // update state
@@ -100,14 +100,16 @@ Below is the complete list of possible props and their options:
 
 > **set**: _(key:string, value:any)_ ▶ The easiest way to add or modify a value. Supports nested levels.
 
-︎`set("email","rami.sweyri@gmail.com")`
-`set("address.city", "Aleppo")`
-`set("interests", ["Sports", "artificial", "intelligence", "games"])`
-`set("interests.4", "coffee")`
+```jsx
+︎set("email","rami.sweyri@gmail.com")
+set("address.city", "Aleppo")
+set("interests", ["Sports", "artificial", "intelligence", "games"])
+set("interests.4", "coffee")
+```
 
 > **get**: _(any)_ ▶︎ get full state.
 
-`get()` or` get` or `data` or `state`
+`get()` or `data` or `state`
 
 ```jsx
 {
@@ -136,7 +138,7 @@ Below is the complete list of possible props and their options:
 
 > **delete**: _(string)_ ▶︎ delete certain value. Supports nested levels.
 
-`delete("interests.1")` 
+`delete("interests.1")`
 `get("interests")`
 
 ```jsx
@@ -156,9 +158,6 @@ Below is the complete list of possible props and their options:
 > **values** ▶︎ clear values of full state, It doesn't matter if it object, array, string.
 
 > **entries** ▶︎ clear entries of full state, It doesn't matter if it object, array, string.
-
-
-
 
 ## License
 

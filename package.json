@@ -1,6 +1,10 @@
 {
   "name": "full-state",
   "version": "1.2.4",
+  "author": {
+    "name": "rami sweyri",
+    "email": "rami.sweyri@gmail.com"
+  },
   "description": "state management in pure javascript",
   "main": "index.js",
   "scripts": {
@@ -17,6 +21,9 @@
     "full-state",
     "full state"
   ],
-  "author": "rami sweyri",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rami-sweyri/full-state"
+  }
 }

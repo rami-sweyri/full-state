@@ -144,7 +144,8 @@ function State(state = {}) {
     }
   };
 
-  this.get = function (key) {
+  this.get = (key) => {
+    console.log({ this: this });
     return this.resolvePath(key);
   };
 
@@ -193,6 +194,17 @@ function State(state = {}) {
   if (!(this instanceof State)) {
     return new State(data);
   }
+  // return {
+  //   state: this.state,
+  //   setState: (e) => this.setState(e),
+  //   get: (e) => this.get(e),
+  //   set: (e, v, r) => this.set(e, v, r),
+  //   data: this.data,
+  // };
 }
-
+// const { state, setState, get, set, data } = new State({ name: "John Doe" });
+// setState({ age: 20, ...get() });
+// set("email", "rami.sweyri@gmail.com");
+// console.log(get("email"));
+// console.log({ state: data });
 module.exports = State;
